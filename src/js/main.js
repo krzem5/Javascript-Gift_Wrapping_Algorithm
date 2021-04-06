@@ -1,11 +1,8 @@
 var cnv,ctx
 var W=2200,H=1200
 function find_border(p){
-	function cross(a,b){
-		return a.x*b.y-b.x*a.y
-	}
-	border=[]
-	c={x:Infinity,y:0}
+	let border=[]
+	let c={x:Infinity,y:0}
 	for (var e of p){
 		if (e.x<c.x){
 			c=e
@@ -34,10 +31,10 @@ function init(){
 	cnv.height=H
 	document.body.appendChild(cnv)
 	ctx=cnv.getContext("2d")
-	pts=[]
-	buffor=30
+	let pts=[]
+	let buffer=30
 	for (var i=0;i<1000;i++){
-		pts.push({x:parseInt(Math.random()*(W-2*buffor)+buffor),y:parseInt(Math.random()*(H-2*buffor)+buffor)})
+		pts.push({x:parseInt(Math.random()*(W-2*buffer)+buffer),y:parseInt(Math.random()*(H-2*buffer)+buffer)})
 	}
 	var b=find_border(pts)
 	draw(pts,b)
